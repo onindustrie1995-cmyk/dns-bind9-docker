@@ -1,0 +1,19 @@
+
+services:
+  dns:
+    image: ubuntu/bind9:latest
+    container_name: servidor-dns
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./config/named.conf:/etc/bind/named.conf:ro
+      - ./config/named.conf.local:/etc/bind/named.conf.local:ro
+      - ./config/db.empresa.local:/etc/bind/db.empresa.local:ro
+    networks:
+      - dns-network
+
+networks:
+  dns-network:
+    driver: bridge

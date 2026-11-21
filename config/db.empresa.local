@@ -1,0 +1,19 @@
+
+$TTL 86400
+
+@   IN  SOA dns.empresa.local. admin.empresa.local. (
+        2026112101 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400      ; Minimum
+)
+
+; Servidor DNS
+@           IN  NS  dns.empresa.local.
+
+; Registros A
+@           IN  A   192.168.1.100
+www         IN  A   192.168.1.100
+dns         IN  A   192.168.1.100
+servidor    IN  A   192.168.1.101
